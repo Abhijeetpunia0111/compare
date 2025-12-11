@@ -41,7 +41,7 @@ export const BrowserPanel = React.forwardRef<BrowserPanelHandle, BrowserPanelPro
 
   // Initialize socket connection
   useEffect(() => {
-    const socket = io('http://localhost:3000');
+    const socket = io(process.env.BACKEND_URL);
     socketRef.current = socket;
 
     socket.on('connect', () => {

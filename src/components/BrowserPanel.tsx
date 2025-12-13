@@ -50,11 +50,7 @@ export const BrowserPanel = React.forwardRef<
   }));
 
   // Backend URL: check env var commonly used by CRA / Next / Vite
-  const BACKEND =
-    (process.env.REACT_APP_BACKEND as string) ||
-    (process.env.NEXT_PUBLIC_BACKEND as string) ||
-    (process.env.VITE_BACKEND as string) ||
-    "https://compare-backend-1-8ts0.onrender.com";
+  const BACKEND = import.meta.env.VITE_BACKEND;
 
   // Initialize socket once
   useEffect(() => {
@@ -371,9 +367,8 @@ export const BrowserPanel = React.forwardRef<
         )}
 
         <button
-          className={`ml-auto flex items-center gap-2 rounded px-3 py-1.5 font-mono ${
-            showGrid ? "bg-blue-950/30 text-blue-400" : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
-          }`}
+          className={`ml-auto flex items-center gap-2 rounded px-3 py-1.5 font-mono ${showGrid ? "bg-blue-950/30 text-blue-400" : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+            }`}
           onClick={() => setShowGrid(!showGrid)}
           title="Toggle grid"
         >
